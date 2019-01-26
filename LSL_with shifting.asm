@@ -22,11 +22,11 @@ IO0PIN   EQU 0XE0028000
 		 LDR R1,[R0]         ;R0 VALUES LOAD TO R1
 		 MOV R2,#0XFFFFFFFF  ;MAKE ALL BITS AS ZERO ON R1	
 		 ORR R1,R2           
-         STR R1,[R0]         ; ALL R0  BITS ARE ZERO (SO ALL THE PINS AS
+                 STR R1,[R0]         ; ALL R0  BITS ARE ZERO (SO ALL THE PINS AS
 		
   		 MOV R3,#0X00000001  ;PINS(SELECT)
 		 MOV R4,#0X1F
-__MAIN                       ;LABLE(LOOP)
+__MAIN    ;LABLE(LOOP)
 		
  		 LDR R0,=IO0SET      ;MOVE THE IO0DET ADDRESS TO R0
 		 LDR R1,[R0]         ;R0 VALUES LOAD TO R1
@@ -38,9 +38,9 @@ __MAIN                       ;LABLE(LOOP)
 		 MOV R1,R3           ;MOV R3 VALUES T0 R1
 		 STR R1,[R0]         ;STORE R1 TO R0(VALUES)
 		 
-    	 LSL R3,#1           ;LRFT SHIFT                
-       	 SUB R4,#1           ;R4 REGISTER REDUCE VALUES(R4-1) TIMES
+    	         LSL R3,#1           ;LRFT SHIFT                
+       	         SUB R4,#1           ;R4 REGISTER REDUCE VALUES(R4-1) TIMES
 	
 		 BNE __MAIN          ;BRANCE NOT EQUAL(LOOP)
-LOOP     B LOOP              ;WHILE(LOOP)
+LOOP             B LOOP              ;WHILE(LOOP)
 		 END 			     ;STOP
